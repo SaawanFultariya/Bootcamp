@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script>
+        $(document).ready(function () {
+            $('#bt1').click(function () {
+                $("#box1").fadeIn(1000);
+                $("#box2").fadeIn(2000);
+                $("#box3").fadeIn(3000);
+                $("#bt2").attr("disabled", false);
+                $(this).attr("disabled", true);
+
+            });
+            $('#bt2').click(function () {
+                $("#box1").fadeOut(1000);
+                $("#box2").fadeOut(2000);
+                $("#box3").fadeOut(3000);
+                $("#bt1").attr("disabled", false);
+                $(this).attr("disabled", true);
+
+            });
+            $('#bt3').click(function(){
+                $("#box1").fadeToggle(1000);
+                $("#box2").fadeToggle(2000);
+                $("#box3").fadeToggle(3000);
+
+
+            });
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <button id="bt1">Fade In</button>
+    <button id="bt2">Fade Out</button>
+    <button id="bt3">Toggle Button</button>
+    <div id="box1" style="background-color: aqua; height: 100px;width: 100px; margin: 10px;display: none;"></div>
+    <div id="box2" style="background-color: rgb(21, 18, 190);height: 100px;width: 100px;margin: 10px;display: none;">
+    </div>
+    <div id="box3" style="background-color: rgb(251, 255, 0);height: 100px;width: 100px;margin: 10px;display: none;">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <script src="buttons.js"></script>
+    <title>Document</title>
+    <script>
+        function buttonalert() {
+            alert('Here is alert');
+
+        }
+        function buttonconfirm() {
+            confirm('here is confirm');
+            if (confirm("Are You Sure?")){
+                alert("Yes")
+            }
+            else{
+                alert("No")
+            }
+
+        }
+        function buttonprompt() {
+
+            prompt('here is prompt');
+        }
+        function colorval(){
+            document.getElementById("box").style.backgroundColor=document.getElementById("picker").value;
+        }
+        function colorred(){
+            document.getElementById("box").style.backgroundColor="red";
+            
+        }
+        function colorgreen(){
+            document.getElementById("box").style.backgroundColor="green";
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Alert inline" onclick="alert('This is alert')">
+    <input type="button" value="Confirm inline" onclick="confirm('This is Confirm')">
+    <input type="button" value="Prompt inline" onclick="prompt('This is Prompt')"><br>
+
+    <hr>
+    <input type="button" value="Alert internal" onclick="buttonalert()">
+    <input type="button" value="Confirm internal" onclick="buttonconfirm()">
+    <input type="button" value="Prompt internal" onclick="buttonprompt()"><br>
+
+    <hr>
+
+    <input type="button" value="Alert External" onclick="buttonalertexternal()">
+    <input type="button" value="Confirm External" onclick="buttonconfirmexternal()">
+    <input type="button" value="Prompt External" onclick="buttonpromptexternal()">
+
+    <hr>
+    <div style="height: 200px; width: 200px; background-color: aquamarine; margin-bottom: 10px;" id="box"></div>
+    <br>
+    <input type="button" value="Red Butoon" onclick="colorred()">
+    <input type="button" value="Green Button" onclick="colorgreen()">
+
+    <br>
+    <input type="color" id="picker" onchange="colorval()">
+
+
+</body>
+
+</html>
