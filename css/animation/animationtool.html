@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: aqua;
+            height: 200px;
+            width: 200px;
+            transition: 4s;
+        }
+        #Translate:hover{
+            -webkit-transform: translate(40px,40px);
+            -moz-transform: translate(40px,40px);
+            transform: translate(40px,40px);
+            animation-duration: 5s;
+            background-color: blueviolet;
+
+        }
+        #Rotate:hover{
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
+            animation-duration: 5s;
+            background-color: blueviolet;
+
+        }
+        #Rotate3d:hover{
+            transform: Rotate3d(1,0,1,360deg);
+            background-color: crimson;
+        }
+        #Skew:hover{
+            transform: skew(45deg);
+            background-color: gray;
+        }
+        #Scale:hover{
+            transform: scale(.5,1);
+        }
+        #Opacity:hover{
+            opacity: 0.2;
+            
+        }
+        #RGBA:hover{
+            background-color: rgba(128,128,128);
+        }
+        #Boxshadow:hover{
+            box-shadow: 3px 5px 30px green;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Translate">Translate</div>
+    <hr />
+    <div id="Rotate">Rotate</div>
+    <hr />
+    <div id="Rotate3d">Rotate 3d</div>
+    <hr />
+    <div id="Skew">Skew</div>
+    <hr />
+    <div id="Scale">Scale</div>
+    <hr />
+    <div id="Opacity">Opacity</div>
+    <hr />
+    <div id="RGBA">RGBA</div>
+    <hr />
+    <div id="Boxshadow">Box-Shadow</div>
+    <hr>
+    <div id="Overflow">Overflow</div>
+    <hr />
+</body>
+
+</html>
