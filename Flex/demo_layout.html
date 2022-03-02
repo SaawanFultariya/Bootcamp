@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Layout</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: verdana;
+            text-align: center;
+
+            height: 100vh;
+        }
+
+        .layout {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+
+        }
+
+        .head {
+            padding: 2rem;
+            background-color: #2cd448;
+
+        }
+
+        .phase_2 {
+            display: flex;
+            flex: 1;
+        }
+
+        .nav, .sidebar {
+            background-color: #6db136;
+            padding: 1rem;
+            flex: 1;
+
+        }
+
+        .article {
+            background-color: #295bc5;
+            padding: 1rem;
+            flex: 4;
+
+        }
+
+        .footer1 {
+            padding: 1rem;
+            background-color: #f5f823;
+            font-size: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 1rem;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="head"> Flex Header</div>
+        <div class="phase_2">
+            <div class="nav">Side Navigation</div>
+            <div class="article"> Main Content Article</div>
+            <div class="sidebar">Side Ad Bar</div>
+        </div>
+        <div class="footer1">Flex Footer</div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>

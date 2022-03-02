@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+    <script>
+        $(document).ready(function () {
+            $('#bt_show').attr('disabled', true);
+            $('#bt_hide').click(function () {
+
+                if (confirm("you are sure")) {
+                    $('#box').hide(2000)
+                    $(this).attr('disabled', true)
+                    $('#bt_show').attr('disabled', false)
+                    ($('#bt_both').text("Show"))
+                   
+                }
+                
+            });
+            $('#bt_show').click(function () {
+                if (confirm("you are sure")) {
+                    $('#box').show(2000)
+                    $(this).attr('disabled', true)
+                    $('#bt_hide').attr('disabled', false)
+                    ($('#bt_both').text("Hide"))
+                }
+
+
+            });
+            $('#bt_both').click(function () {
+                alert($('#bt_both').text());
+                ($(this).text() == "Hide")
+                    ? ($(this).text("Show"), $('#box').hide(2000), $('#bt_hide').attr('disabled', true), $('#bt_show').attr('disabled', false))
+                    : ($(this).text("Hide"), $('#box').show(2000), $('#bt_show').attr('disabled', true), $('#bt_hide').attr('disabled', false))
+
+
+            });
+            $('#plus').click(function () {
+                if (confirm('you Want to Increment')){
+                    var MH =parseInt($('#box').css("height"))
+                    var MW =parseInt($('#box').css("width"))
+                    if (MH<500){
+                        MH+=10
+                        MW+=10
+                        $('#box').css('height',MH)
+                        $('#box').css('width',MW)
+
+
+                    }
+                    
+
+                }
+
+            });
+            $('#minus').click(function () {
+                if (confirm('you Want to Decrement')){
+                    var MH =parseInt($('#box').css("height"))
+                    var MW =parseInt($('#box').css("width"))
+                    if (MH>0){
+                        MH-=10
+                        MW-=10
+                        $('#box').css('height',MH)
+                        $('#box').css('width',MW)
+
+
+                    }
+
+}
+
+            });
+
+        });
+    </script>
+
+
+
+</head>
+
+<body>
+    <div id="box" style="height: 200px; width: 200px;background-color:blueviolet;"></div>
+    <br>
+    <hr>
+    <button id="bt_hide">Hide</button>
+    <button id="bt_show">Show</button>
+    <br>
+
+    <hr>
+    <button id="bt_both">Hide</button>
+
+    <br>
+    <hr>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+</body>
+
+</html>

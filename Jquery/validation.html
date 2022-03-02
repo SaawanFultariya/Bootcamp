@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var $FNameLNameRegEx = /^([a-zA-Z]{2,20})$/;
+        var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
+        var $ConNoRegEx = /^([0-9]{10})$/;
+
+        var TxtNameFlag = false, TxtContactNoFlag = false, TxtEmailIdFlag = false, TxtContactMsgFlag = false;
+
+        $(document).ready(function () {
+            $("#txtname").blur(function () {
+                $("#namevalidate").empty()
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#namevalidate").html("(*)Firstname is required.....!");
+                    TxtContactMsgFlag = false;
+                }
+                else {
+                    if (!($("#txtname").val().match($FNameLNameRegEx))) {
+                        $("#namevalidate").html("(*)Firstname is Invalid.....!");
+                        TxtContactMsgFlag = false;
+                    }
+                    else {
+                        TxtContactMsgFlag = true;
+                    }
+                }
+
+            });
+            $("#txtcontact").blur(function () {
+                $("#contactvalidate").empty()
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#contactvalidate").html("(*)Contact Number is required.....!");
+                    TxtContactNoFlag = false
+                }
+                else {
+                    if (!($("#txtcontact").val().match($ConNoRegEx))) {
+                        $("#contactvalidate").html("(*)Contact Number is Invalid.....!");
+                        TxtContactNoFlag = false
+
+                    }
+                    else {
+                        TxtContactNoFlag = true;
+                    }
+                }
+
+            });
+            $("#txtemail").blur(function () {
+                $("#emailvalidate").empty()
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#emailvalidate").html("(*)EmailId is required.....!");
+                    TxtEmailIdFlag = false
+                }
+                else {
+                    if (!($("#txtemail").val().match($EmailIdRegEx))) {
+                        $("#emailvalidate").html("(*)EmailId is Invalid.....!");
+                        TxtEmailIdFlag = false
+                    }
+                    else {
+                        TxtEmailIdFlag = true
+                    }
+                }
+
+            });
+            $("#txtmessage").blur(function () {
+                $("#messagevalidate").empty()
+                if ($(this).val() == "" || $(this).val() == null) {
+                    $("#messagevalidate").html("(*)Message is required.....!");
+                    TxtContactMsgFlag = false
+                }
+                else {
+                    if (($("#txtmessage").val.length >= 3000)) {
+                        $("#messagevalidate").html("(*)Message length is Short.....!");
+                        TxtContactMsgFlag = false
+
+                    }
+                    else {
+                        TxtContactMsgFlag = true
+                    }
+                }
+
+            });
+
+
+
+            $("#btnsubmit").click(function () {
+                $("#namealidate").empty();
+
+                ($("#txtname").val() == "" || $("#txtname").val() == null) ? ($("#namevalidate").html("* Name is Required"), TxtNameFlag = false) : ((!$("#txtname").val().match($FNameLNameRegEx)) ? ($("#namevalidate").html("Invalid Input"), TxtNameFlag = false) : (TxtNameFlag = true));
+
+
+                $("#contactvalidate").empty();
+
+                ($("#txtcontact").val() == "" || $("#txtcontact").val() == null) ? ($("#contactvalidate").html("* Contact is Required"), TxtContactNoFlag = false) : ((!$("#txtcontact").val().match($ConNoRegEx)) ? ($("#contactvalidate").html("Invalid Input"), TxtContactNoFlag = false) : (TxtContactNoFlag = true));
+
+
+                $("#emailvalidate").empty();
+
+                ($("#txtemail").val() == "" || $("#txtemail").val() == null) ? ($("#emailvalidate").html("* Email Id is Required"), TxtEmailIdFlag = false) : ((!$("#txtemail").val().match($EmailIdRegEx)) ? ($("#emailvalidate").html("Invalid Input"), TxtEmailIdFlag = false) : (TxtEmailIdFlag = true));
+
+
+                $("#txtmessage").empty();
+
+                ($("#txtmessage").val()=="" || $("#txtmessage").val()==null)?($("#messagevalidate").html("* Message is Required"),TxtContactMsgFlag=false):((!$("#txtmessage").val()>=800)?($("#messagevalidate").html("Invalid Input"),TxtContactMsgFlag=false):(TxtContactMsgFlag=true));
+                if (TxtNameFlag == true && TxtContactNoFlag == true && TxtEmailIdFlag == true && TxtContactMsgFlag == true) {
+                    alert("Form submitted successfully..!!");
+                }
+                else {
+                    alert("Invalid input..!!");
+                }
+
+            });
+            $("#txtcontact").keypress(function (e) {
+                $("#contactvalidation").empty();
+                var Flag = false;
+                (e.which >= 48 && e.which <= 57)
+                    ? Flag = true
+                    : (Flag = false, $("#contactvalidation").html("(*) Invalid contact no..!!"));
+                return Flag;
+            });
+            $("#txtname").keypress(function (e) {
+                $("#namevalidate").empty();
+                var Flag = false;
+                ((e.which >= 65 && e.which <= 90) || (e.which >= 92 && e.which <= 121))
+                    ? Flag = true
+                    : (Flag = false, $("#namevalidate").html("(*) Invalid name..!!"));
+                return Flag;
+            });
+        
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txtname" placeholder="Enter your name" name="Name"><br>
+    <small id="namevalidate" style="color: red;"></small><br>
+    <input type="text" id="txtcontact" placeholder="Enter your contact number" name="Contact"><br>
+    <small id="contactvalidate" style="color: red;"></small><br>
+    <input type="text" id="txtemail" placeholder="Enter your mail id" name="Email"><br>
+    <small id="emailvalidate" style="color: red;"></small><br>
+    <textarea name="Message" id="txtmessage" rows="6" placeholder="Enter Your Message"></textarea><br>
+    <small id="messagevalidate" style="color: red;"></small><br>
+    <button id="btnsubmit"> Submit</button>
+
+</body>
+
+</html>
